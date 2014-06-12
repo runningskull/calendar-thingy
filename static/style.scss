@@ -1,0 +1,98 @@
+@import "compass";
+
+
+@mixin user-select($select) {
+  $select: unquote($select);
+  @include experimental(user-select, $select, -moz, -webkit, not -o, not -ms, -khtml, official);
+}
+
+
+
+$bg-month: #fff;
+$color-header: desaturate(darken($bg-month, 40%), 32%);
+$color-border-month: desaturate(darken($bg-month, 5%), 32%);
+$color-border-day: darken($color-border-month, 10%);
+
+
+
+* { margin:0; padding:0; }
+body { font-family: Helvetica, sans-serif; }
+
+.day {
+    display: block;
+    float: left;
+    height: 100px;
+    width: 100px;
+    border: 1px solid $color-border-day;
+    margin: 0 -1px -1px 0;
+    position: relative;
+
+    @include box-shadow(inset 0 1px #fff);
+
+    &:hover, &.selected {
+        background: rgba(#eefff5, 0.75);
+        cursor: pointer;
+    }
+
+    &.selected {
+        position: relative;
+        z-index: 2;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            height: 100%;
+            left: 0;
+            width: 100%;
+            z-index: -1;
+            @include box-shadow(0 3px 7px rgba(#020, 0.12));
+        }
+    }
+}
+
+.num {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 4px;
+    margin-right: 4px;
+    font-weight: 300;
+    font-size: 0.75em;
+    letter-spacing: 1px;
+    color: $color-border-day;
+}
+
+.month {
+    @include user-select(none);
+
+    overflow: hidden;
+    margin: 0 auto;
+    margin-bottom: 80px;
+    width: 707px;
+
+    background: $bg-month;
+    border-bottom: 2px solid $color-border-month;
+    padding: 0 80px 60px 80px;
+
+    h2 {
+        font-size: 0.875em;
+        text-transform: uppercase;
+        font-weight: 300;
+        letter-spacing: 3px;
+        color: darken($color-border-day, 16%);
+        text-align: center;
+        margin-bottom: 40px;
+    }
+}
+
+#calendar {
+    margin-top: 80px;
+}
+
+@for $i from 0 through 6 {
+    .first-is-#{$i} > .day:first-of-type {
+        margin-left: 101px * $i;
+    }
+}
+
