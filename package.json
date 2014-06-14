@@ -20,7 +20,8 @@
     "enchilada": "0.8.0",
     "brfs": "~1.1.1",
     "moment": "~2.6.0",
-    "underscore": "~1.6.0"
+    "underscore": "~1.6.0",
+    "laf": "http://github.com/runningskull/laf.git"
   },
   "devDependencies": {}
 }
