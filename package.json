@@ -16,11 +16,11 @@
     "url": "https://github.com/runningskull/cptr-cad/issues"
   },
   "dependencies": {
-    "express": "~4.0.0",
+    "express": "4.0.0",
     "enchilada": "0.8.0",
-    "brfs": "~1.1.1",
-    "moment": "~2.6.0",
-    "underscore": "~1.6.0",
+    "brfs": "1.1.1",
+    "moment": "2.6.0",
+    "underscore": "1.6.0",
     "laf": "git://github.com/runningskull/laf.git"
   },
   "devDependencies": {}
